@@ -19,7 +19,7 @@ public class TestController {
     @ResponseBody
     public String getRate_home() {
         try {
-            return userLanguage;
+            return userLanguage+" New Text";
         } catch (Exception e) {
             e.printStackTrace();
             return "Error: " + e.getMessage();
