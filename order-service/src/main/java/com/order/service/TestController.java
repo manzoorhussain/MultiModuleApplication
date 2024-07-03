@@ -10,19 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class TestController {
 
-    @Value("${user.enviroment2}")
-    String userLanguage;
+  @Value("${user.enviroment2}")
+  String userLanguage;
 
 
+  @GetMapping("/userLanguage")
+  @ResponseBody
+  public String getRateHome() {
 
-    @GetMapping("/userLanguage")
-    @ResponseBody
-    public String getRate_home() {
-        try {
-            return userLanguage+" New Text";
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Error: " + e.getMessage();
-        }
-    }
+    return userLanguage + " New Text";
+
+  }
 }
