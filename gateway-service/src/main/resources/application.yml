@@ -22,7 +22,11 @@ spring:
         - id: ORDER-SERVICE
           uri: lb://ORDER-SERVICE
           predicates:
-              - Path=/**
+              - Path=/order/**
+        - id: PAYMENT-SERVICE
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+              - Path=/payment/**
 
 
 

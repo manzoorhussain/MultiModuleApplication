@@ -49,6 +49,22 @@ services:
     networks:
        - microservices-network
 
+  payment-service:
+    container_name: payment-service
+    build: ./payment-service
+    image: payment-service
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery-server:8761/eureka
+        -SPRING_CONFIG_IMPORT=configserver:http://config-server:8088
+    ports:
+      - 8087:8087
+    depends_on:
+      config-server:
+        condition: service_healthy
+    networks:
+      - microservices-network
+
 
   gateway-service:
     container_name: gateway-service
