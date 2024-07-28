@@ -29,7 +29,7 @@ public class PaymentController {
   }
 
   @GetMapping("/check-payment/{amount}")
-  @ResponseBody
+
   public boolean checkPayment(@PathVariable Double amount) {
 
     PaymentDetailEntity paymentDetailEntity = paymentDetailsService.findByAmount(amount);
@@ -39,7 +39,7 @@ public class PaymentController {
   }
 
   @GetMapping("/payment-info/{paymentId}")
-  @ResponseBody
+
   public PaymentDetailEntity getPaymentInfo(@PathVariable Integer paymentId) {
 
     return paymentDetailsService.findById(paymentId);
