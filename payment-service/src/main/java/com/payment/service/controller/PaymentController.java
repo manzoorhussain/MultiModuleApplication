@@ -38,5 +38,13 @@ public class PaymentController {
 
   }
 
+  @GetMapping("/payment-info/{paymentId}")
+  @ResponseBody
+  public PaymentDetailEntity getPaymentInfo(@PathVariable Integer paymentId) {
+
+    return paymentDetailsService.findById(paymentId);
+
+
+  }
 
 }

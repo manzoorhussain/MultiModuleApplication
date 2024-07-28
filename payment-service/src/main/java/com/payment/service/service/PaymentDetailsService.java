@@ -15,4 +15,7 @@ public class PaymentDetailsService {
     return paymentDetailRepo.findByAmount(amount);
   }
 
+  public PaymentDetailEntity findById(Integer paymentId){
+    return paymentDetailRepo.findById(paymentId).orElse(null);
+  }
 }
