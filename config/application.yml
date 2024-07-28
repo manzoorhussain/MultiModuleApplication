@@ -1,7 +1,14 @@
-user:
-  language: English
-  enviroment : Native and Local Manzoor123
-  enviroment2: Enviroment2222244444444444New
-  
-  
-  
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        password: admin
+        url: jdbc:postgresql://localhost:5432/ECommerce
+        username: postgres
+    jpa:
+        hibernate:
+            ddl-auto: none
+        properties:
+            hibernate:
+                format_sql: true
+                show_sql: true
+                use_sql_comments: true
