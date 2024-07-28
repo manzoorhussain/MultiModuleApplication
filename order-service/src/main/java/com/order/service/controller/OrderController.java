@@ -31,7 +31,7 @@ public class OrderController {
 
   @GetMapping("/place-order/{amount}")
   @ResponseBody
-  public String placeOrder(@PathVariable Integer amount) {
+  public String placeOrder(@PathVariable Double amount) {
     boolean flag = paymentClient.checkPayment(amount);
     return flag ? "Order Placed" : "Insufficient Balance ";
   }

@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface PaymentClient {
 
   @GetMapping("/payment/check-payment/{amount}")
-  public boolean checkPayment(@PathVariable Integer amount);
+  public boolean checkPayment(@PathVariable Double amount);
 }
