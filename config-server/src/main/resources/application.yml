@@ -10,7 +10,7 @@ spring:
       server:
         native:
           #search-locations: /var/config
-          search-locations: file:///D:/spring-boot-micro-services/config
+          search-locations: file:///D:/spring-boot-micro-services/MultiModuleApplication/config
       label: main
 
   profiles:

@@ -1,5 +1,5 @@
 server:
-  port: '8080'
+  port: '8087'
 
 
 management:
@@ -12,24 +12,7 @@ spring:
     import: configserver:http://localhost:8088
     #import: configserver:http://config-server:8088
   application:
-    name: GATEWAY-SERVICE
-  main:
-    web-application-type: reactive
-
-  cloud:
-    gateway:
-      routes:
-        - id: ORDER-SERVICE
-          uri: lb://ORDER-SERVICE
-          predicates:
-              - Path=/order/**
-        - id: PAYMENT-SERVICE
-          uri: lb://PAYMENT-SERVICE
-          predicates:
-              - Path=/payment/**
-
-
-
+    name: PAYMENT-SERVICE
 
 eureka:
   client:

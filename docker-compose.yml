@@ -9,6 +9,18 @@ services:
     networks:
       - microservices-network
 
+  database:
+    image: postgres
+    container_name: database
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=ECommerce
+    ports:
+      - "5432:5432"
+    networks:
+      - microservices-network
+
 
   config-server:
     container_name: config-server
@@ -48,6 +60,22 @@ services:
         condition: service_healthy
     networks:
        - microservices-network
+
+  payment-service:
+    container_name: payment-service
+    build: ./payment-service
+    image: payment-service
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery-server:8761/eureka
+        -SPRING_CONFIG_IMPORT=configserver:http://config-server:8088
+    ports:
+      - 8087:8087
+    depends_on:
+      config-server:
+        condition: service_healthy
+    networks:
+      - microservices-network
 
 
   gateway-service:
