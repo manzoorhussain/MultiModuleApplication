@@ -20,6 +20,20 @@ services:
       - "5432:5432"
     networks:
       - microservices-network
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+  pgadmin:
+    container_name: pg-admin
+    image: dpage/pgadmin4
+    depends_on:
+      - database
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    restart: unless-stopped
 
 
   config-server:
@@ -100,3 +114,6 @@ networks:
     driver: bridge
 
 
+volumes:
+  local_pgdata:
+  pgadmin-data:

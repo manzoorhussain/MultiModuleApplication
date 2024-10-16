@@ -2,16 +2,14 @@ spring:
     datasource:
         driver-class-name: org.postgresql.Driver
         password: admin
-        url: jdbc:postgresql://database:5432/ECommerce
+        url: jdbc:postgresql://localhost:5432/ECommerce
         username: postgres
     jpa:
         hibernate:
             ddl-auto: update
         properties:
             hibernate:
+                dialect : org.hibernate.dialect.PostgreSQLDialect
                 format_sql: true
                 show_sql: true
                 use_sql_comments: true
-
-user:
-    name: Manzoor Hussain
