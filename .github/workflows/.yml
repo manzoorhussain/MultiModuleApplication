@@ -14,24 +14,12 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest  # Using GitHub-hosted Ubuntu runner
     steps:
-    - uses: actions/checkout@v3
-      with:
-        ref: sprint1
-
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-
-
-    - name: Build with Maven
-      run: mvn clean install
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Build project
+        run: mvn clean install
 
 
 
