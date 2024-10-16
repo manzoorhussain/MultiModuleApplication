@@ -16,7 +16,7 @@ jobs:
   build:
     runs-on: ubuntu-latest  # Using GitHub-hosted Ubuntu runner
     steps:
-      - name: Checkout code
+      - name: Checkout code2
         uses: actions/checkout@v3
       - name: Build project
         run: mvn clean install
