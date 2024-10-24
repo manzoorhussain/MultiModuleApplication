@@ -1,3 +1,6 @@
+server:
+  port: 8088
+
 spring:
   application:
     name: CONFIG-SERVER
@@ -5,14 +8,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/manzoorhussain/configuation
+          uri: https://github.com/manzoorhussain/configuation.git
+          default-label: main
 
-
-
-      label: main
-
-  profiles:
-    active: default,native
 
 
 eureka:
