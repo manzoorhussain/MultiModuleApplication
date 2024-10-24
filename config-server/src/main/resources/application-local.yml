@@ -1,16 +1,20 @@
 server:
   port: 8088
 
+
 spring:
   application:
     name: CONFIG-SERVER
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/manzoorhussain/configuation.git
-          default-label: main
+        native:
+          #search-locations: /var/config
+          search-locations: file:///D:/spring-boot-micro-services/MultiModuleApplication/config
+      label: main
 
+  profiles:
+    active: default,native
 
 
 eureka:
